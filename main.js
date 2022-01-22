@@ -40,11 +40,22 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-  console.log(playRound(playerPlayer(), computerPlayer()));
-  console.log(playRound(playerPlayer(), computerPlayer()));
-  console.log(playRound(playerPlayer(), computerPlayer()));
-  console.log(playRound(playerPlayer(), computerPlayer()));
-  console.log(playRound(playerPlayer(), computerPlayer()));
+  for (let i = 1; i <= rounds; i++) {
+    console.log(playRound(playerPlayer(), computerPlayer()));
+  }
+  if (playerScore > computerScore) {
+    alert(
+      `Scores:\nPlayer: ${playerScore}\nComputer: ${computerScore}\n\nResult: You win!`
+    );
+  } else if (computerScore > playerScore) {
+    alert(
+      `Scores:\nPlayer: ${playerScore}\nComputer: ${computerScore}\n\nResult: You lose!`
+    );
+  } else {
+    alert(
+      `Scores:\nPlayer: ${playerScore}\nComputer: ${computerScore}\n\nResult: It's a tie! WTF!`
+    );
+  }
 }
 
 const RPS = ["Rock", "Paper", "Scissors"];
