@@ -1,8 +1,8 @@
-function computerPlayer() {
+function playComputer() {
   return RPS[Math.floor(Math.random() * 3)];
 }
 
-function playerPlayer() {
+function playHuman() {
   do {
     let choice = prompt("Rock, Paper, or Scissors?").toLowerCase();
 
@@ -40,21 +40,16 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
+  let print = `Scores:\nPlayer: ${playerScore}\nComputer: ${computerScore}\n\n`;
   for (let i = 1; i <= rounds; i++) {
-    console.log(playRound(playerPlayer(), computerPlayer()));
+    console.log(playRound(playHuman(), playComputer()));
   }
   if (playerScore > computerScore) {
-    alert(
-      `Scores:\nPlayer: ${playerScore}\nComputer: ${computerScore}\n\nResult: You win!`
-    );
+    alert(`${print} Result: You win!`);
   } else if (computerScore > playerScore) {
-    alert(
-      `Scores:\nPlayer: ${playerScore}\nComputer: ${computerScore}\n\nResult: You lose!`
-    );
+    alert(`${print} Result: You lose!`);
   } else {
-    alert(
-      `Scores:\nPlayer: ${playerScore}\nComputer: ${computerScore}\n\nResult: It's a tie! WTF!`
-    );
+    alert(`${print} Result: It's a tie! WTF!`);
   }
 }
 
