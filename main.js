@@ -40,16 +40,16 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-  let print = `Scores:\nPlayer: ${playerScore}\nComputer: ${computerScore}\n\n`;
   for (let i = 1; i <= rounds; i++) {
     console.log(playRound(playHuman(), playComputer()));
   }
-  if (playerScore > computerScore) {
+  let print = `Scores:\nPlayer: ${playerScore}\nComputer: ${computerScore}\n\n`;
+  if (playerScore === computerScore) {
+    alert(`${print} Result: It's a tie! WTF!`);
+  } else if (playerScore > computerScore) {
     alert(`${print} Result: You win!`);
   } else if (computerScore > playerScore) {
     alert(`${print} Result: You lose!`);
-  } else {
-    alert(`${print} Result: It's a tie! WTF!`);
   }
 }
 
